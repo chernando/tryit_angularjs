@@ -1,0 +1,27 @@
+<h1>Talks</h1>
+<p>
+  <input type="text"
+        name="filterText"
+        placeholder="Filter text"
+        ng-model="filterText">
+</p>
+<div class="well clearfix"
+      ng-repeat="talk in talks | filter:filterText | orderBy:'starts'">
+  <h2>{{ talk.title }}</h2>
+  <p class="meta">
+    <span class="date">{{ talk.starts | date:'medium' }}</span>
+    <span class="author">{{ talk.author }}</span>
+    <a ng-hide="favorites.isIn(talk)"
+        ng-click="favorites.addTalk(talk)">
+      <span class="glyphicon glyphicon-plus"></span> Add to Favorites
+    </a>
+  </p>
+
+  <p class="description">
+    <img class="pull-left"
+          width="160"
+          height="160"
+          ng-src="images/{{ talk.image || 'robot_question.png' }}">
+    {{ talk.description }}
+  </p>
+</div>

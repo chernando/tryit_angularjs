@@ -25,37 +25,29 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container"
-         ng-controller="ScheduleCtrl">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Try IT!</a>
+        </div>
 
-      <h1>Talks</h1>
-      <p>
-        <input type="text"
-              name="filterText"
-              placeholder="Filter text"
-              ng-model="filterText">
-      </p>
-      <div class="well clearfix"
-           ng-repeat="talk in talks | filter:filterText | orderBy:'starts'">
-        <h2>{{ talk.title }}</h2>
-        <p class="meta">
-          <span class="date">{{ talk.starts | date:'medium' }}</span>
-          <span class="author">{{ talk.author }}</span>
-          <a ng-hide="favorites.isIn(talk)"
-             ng-click="favorites.addTalk(talk)">
-            <span class="glyphicon glyphicon-plus"></span> Add to Favorites
-          </a>
-        </p>
-
-        <p class="description">
-          <img class="pull-left"
-               width="160"
-               height="160"
-               ng-src="images/{{ talk.image || 'robot_question.png' }}">
-          {{ talk.description }}
-        </p>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#/">Schedule</a></li>
+            <li><a href="#/my-schedule">My Schedule</a></li>
+          </ul>
+        </div>
       </div>
+    </nav>
 
+    <div class="container"
+         ng-view="">
     </div>
 
     <!--[if lt IE 9]>
@@ -80,6 +72,7 @@
         <script src="scripts/controllers/schedule.js"></script>
         <script src="scripts/services/talks.js"></script>
         <script src="scripts/services/favorites.js"></script>
+        <script src="scripts/controllers/myschedule.js"></script>
         <!-- endbuild -->
 </body>
 </html>
