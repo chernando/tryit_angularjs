@@ -19,39 +19,14 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="tryitApp"
-        ng-init="talks = [
-          {
-            'id': 1,
-            'title': 'Acto de Apertura',
-            'author': '(Por confirmar)',
-            'starts': '2012-03-17T10:00:00+0100',
-            'ends': '2012-03-17T11:00:00+0100',
-            'description': 'Acto de apertura de esta segunda edición del Try IT!'
-          },
-          {
-            'id': 2,
-            'title': 'Integracion de dispositivos y domotica',
-            'author': 'BABEL',
-            'starts': '2012-03-18T10:30:00+0100',
-            'ends': '2012-03-18T11:30:00+0100',
-            'description': ''
-          },
-          {
-            'id': 3,
-            'title': 'Open Web Device: The future of the mobile web is here (Firefox OS Telefónica)',
-            'author': 'German Toro del Valle',
-            'starts': '2012-03-17T11:00:00+0100',
-            'ends': '2012-03-17T12:00:00+0100',
-            'description': 'El objetivo de esta charla es presentar el nuevo sistema operativo Firefox OS desarrollado de manera conjunta entre Mozilla y los principales operadores de telecomunicaciones a nivel internacional, entre los cuales Telefónica ocupa un papel predominante. Presentaremos las características principales así como las líneas de trabajo más relevantes de este nuevo sistema operativo que tiene por principal finalidad seguir avanzando hacia un paradigma central: convertir la Web en la plataforma que todos (desarrolladores y usuarios) necesitamos.'
-          }
-        ]">
+  <body ng-app="tryitApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div class="container"
+         ng-controller="ScheduleCtrl">
 
       <h1>Talks</h1>
       <p>
@@ -98,6 +73,8 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/schedule.js"></script>
+        <script src="scripts/services/talks.js"></script>
         <!-- endbuild -->
 </body>
 </html>
