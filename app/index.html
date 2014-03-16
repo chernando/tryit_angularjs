@@ -41,6 +41,10 @@
         <p class="meta">
           <span class="date">{{ talk.starts | date:'medium' }}</span>
           <span class="author">{{ talk.author }}</span>
+          <a ng-hide="favorites.isIn(talk)"
+             ng-click="favorites.addTalk(talk)">
+            <span class="glyphicon glyphicon-plus"></span> Add to Favorites
+          </a>
         </p>
 
         <p class="description">
@@ -75,6 +79,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/schedule.js"></script>
         <script src="scripts/services/talks.js"></script>
+        <script src="scripts/services/favorites.js"></script>
         <!-- endbuild -->
 </body>
 </html>
